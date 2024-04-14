@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function addSymptom() {
+            var symptomFields = document.getElementById('symptomFields');
+            var symptomCount = symptomFields.children.length / 2 + 1; // Assuming each symptom has a label and a select element
+            var newLabel = document.createElement('label');
+            newLabel.setAttribute('for', 'symptom' + symptomCount);
+            newLabel.textContent = 'Symptom ' + symptomCount + ':';
+            var newSelect = document.createElement('select');
+            newSelect.setAttribute('id', 'symptom' + symptomCount);
+            newSelect.setAttribute('name', 'symptom' + symptomCount);
+            // Add options for all symptoms
+            var symptoms = [
+                "Anorexia", "Abortions", "Aggression", "Arthrogyposis", "Ankylosis", "Anxiety", "Bellowing", "Blood Loss",
+                "Blisters", "Conjunctivae", "Coughing", "Depression", "Discomfort", "Dyspnea", "Dysentery", "Diarrhoea",
+                "Dehydration", "Drooling", "Dull", "Decreased Fertility", "Difficulty Breathing", "Emaciation", "Fever",
+                "Facial Paralysis", "Frothing of Mouth", "Frothing", "Highly Diarrhoea", "High Temp", "High Pulse Rate",
+                "Isolation from Herd", "Infertility", "Loss of Appetite", "Lameness", "Lack of Coordination", "Lethargy",
+                "Lacrimation", "Milk Watery", "Milk Clots", "Mild Diarrhoea", "Moaning", "Reduction in Milk Yield",
+                "Rapid Breathing", "Reduced Feed Intake","Reduced Fat", "Salivation", "Stillbirths", "Swollen Tongue", "Ulcer", "Vomiting",
+                "Weight Loss", "Weakness", "Unwillingness to Move"
+            ];
+            symptoms.forEach(function(symptom) {
+                var option = document.createElement('option');
+                option.value = symptom;
+                option.textContent = symptom;
+                newSelect.appendChild(option);
+            });
+            symptomFields.appendChild(newLabel);
+            symptomFields.appendChild(newSelect);
+        }
+    </script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Prediction</title>
+<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Disease Prediction</h1>
+    <form id="predictionForm" action="/predict" method="POST">
+        <div id="symptomFields">
+            <label for="symptom1">Symptom 1:</label>
+            <select id="symptom1" name="symptom1">
+                <option value="anorexia">Anorexia</option>
+                <option value="abortions">Abortions</option>
+                <option value="aggression">Aggression</option>
+                <option value="arthrogyposis">Arthrogyposis</option>
+                <option value="ankylosis">Ankylosis</option>
+                <option value="anxiety">Anxiety</option>
+                <option value="bellowing">Bellowing</option>
+                <option value="blood_loss">Blood Loss</option>
+                <option value="blisters">Blisters</option>
+                <option value="conjunctivae">Conjunctivae</option>
+                <option value="coughing">Coughing</option>
+                <option value="depression">Depression</option>
+                <option value="discomfort">Discomfort</option>
+                <option value="dyspnea">Dyspnea</option>
+                <option value="dysentery">Dysentery</option>
+                <option value="diarrhoea">Diarrhoea</option>
+                <option value="dehydration">Dehydration</option>
+                <option value="drooling">Drooling</option>
+                <option value="dull">Dull</option>
+                <option value="decreased_fertility">Decreased Fertility</option>
+                <option value="diffculty_breath">Difficulty Breathing</option>
+                <option value="emaciation">Emaciation</option>
+                <option value="fever">Fever</option>
+                <option value="facial_paralysis">Facial Paralysis</option>
+                <option value="frothing_of_mouth">Frothing of Mouth</option>
+                <option value="frothing">Frothing</option>
+                <option value="highly_diarrhoea">Highly Diarrhoea</option>
+                <option value="high_temp">High Temp</option>
+                <option value="high_pulse_rate">High Pulse Rate</option>
+                <option value="iosolation_from_herd">Isolation from Herd</option>
+                <option value="infertility">Infertility</option>
+                <option value="loss_of_appetite">Loss of Appetite</option>
+                <option value="lameness">Lameness</option>
+                <option value="lack_of_coordination">Lack of Coordination</option>
+                <option value="lethargy">Lethargy</option>
+                <option value="lacrimation">Lacrimation</option>
+                <option value="milk_watery">Milk Watery</option>
+                <option value="milk_clots">Milk Clots</option>
+                <option value="mild_diarrhoea">Mild Diarrhoea</option>
+                <option value="moaning">Moaning</option>
+                <option value="reduction_milk_yields">Reduction in Milk Yield</option>
+                <option value="rapid_breathing">Rapid Breathing</option>
+                <option value="reduces_feed_intake">Reduced Feed Intake</option>
+                <option value="reduced_fat">Reduced Fat</option>
+                <option value="salivation">Salivation</option>
+                <option value="stillbirths">Stillbirths</option>
+                <option value="swollen_tongue">Swollen Tongue</option>
+                <option value="ulcers">Ulcer</option>
+                <option value="vomiting">Vomiting</option>
+                <option value="weight_loss">Weight Loss</option>
+                <option value="weakness">Weakness</option>
+                <option value="unwillingness_to_move">Unwilling to Move</option>
+            </select>
+        </div>
+        <button type="button" onclick="addSymptom()" class="blue">Add More Symptoms</button>
+        <button type="submit" >Predict Disease</button>
+    </form>
+    <div id="output"></div>
+</div>
+
+</body>
+</html>

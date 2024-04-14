@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Prediction</title>
+<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+<style>
+    .container {
+        text-align: center;
+    }
+    .btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Disease Prediction</h1>
+    <br><h4>{{pred}}</h4></br>
+    <a href="/" class="btn" onclick="history.back()">Back</a>
+    <a href="#" class="btn" onclick="location.reload()">Refresh</a>
+</div>
+</body>
+</html>
